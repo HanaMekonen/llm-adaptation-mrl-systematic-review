@@ -1,0 +1,37 @@
+Database:
+ScienceDirect
+
+Publication Period:
+January 2023 – March 2026
+
+ScienceDirect uses its own search syntax. The following Boolean query was applied.
+
+("Large Language Model"
+OR "LLM"
+OR "Foundation Model"
+OR "Pre-trained Language Model")
+
+AND
+
+("fine-tuning"
+OR "parameter-efficient fine-tuning"
+OR "PEFT"
+OR "LoRA"
+OR "adapter"
+OR "prompt tuning"
+OR "instruction tuning"
+OR "continued pretraining"
+OR "transfer learning"
+OR "cross-lingual transfer"
+OR "tokenizer adaptation"
+OR "vocabulary expansion")
+
+AND
+
+("low-resource language"
+OR "under-resourced language"
+OR "morphologically rich"
+OR "Semitic"
+OR "agglutinative"
+OR "Amharic"
+OR "Tigrinya")
