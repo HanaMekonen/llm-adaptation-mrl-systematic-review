@@ -28,7 +28,6 @@ The repository is provided to improve the transparency, reproducibility, and tra
 | `extraction/` | Data extraction template and extracted study characteristics |
 | `quality/` | Quality assessment checklist and ratings for included studies |
 | `figures/` | PRISMA 2020 flow diagram and supplementary figures |
-| `appendices/` *(optional)* | Additional supplementary tables referenced in the manuscript |
 
 ---
 
