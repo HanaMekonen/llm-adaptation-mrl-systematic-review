@@ -1,0 +1,36 @@
+# ACL Anthology Search Strategy
+
+The ACL Anthology search interface provides more limited search functionality than bibliographic databases such as Scopus.
+
+Instead of a single complex Boolean query, multiple focused searches were performed using combinations of the following keywords:
+
+## Large Language Models
+
+- Large Language Model
+- LLM
+- Foundation Model
+
+## Adaptation Techniques
+
+- adaptation
+- fine-tuning
+- PEFT
+- LoRA
+- adapter
+- prompt tuning
+- tokenizer
+- vocabulary expansion
+- continued pretraining
+- retrieval augmented generation
+
+## Linguistic Scope
+
+- low-resource
+- morphologically rich
+- Semitic
+- agglutinative
+- Amharic
+- Tigrinya
+- Afaan Oromo
+
+Relevant papers identified through these searches were further examined using backward and forward citation snowballing.
