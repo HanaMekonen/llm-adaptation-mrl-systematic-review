@@ -1,0 +1,42 @@
+Database:
+IEEE Xplore
+
+Publication Period:
+January 2023 – March 2026
+
+Search Query
+
+("Large Language Model"
+OR "LLM"
+OR "Foundation Model"
+OR "Pre-trained Language Model")
+
+AND
+
+("fine-tuning"
+OR "parameter-efficient fine-tuning"
+OR "PEFT"
+OR "LoRA"
+OR "adapter"
+OR "prompt tuning"
+OR "instruction tuning"
+OR "continued pretraining"
+OR "transfer learning"
+OR "cross-lingual transfer"
+OR "vocabulary expansion"
+OR "tokenizer adaptation"
+OR "retrieval augmented generation"
+OR "RAG")
+
+AND
+
+("low-resource language"
+OR "under-resourced language"
+OR "morphologically rich"
+OR "Semitic"
+OR "agglutinative"
+OR "fusional"
+OR "non-concatenative"
+OR "Amharic"
+OR "Tigrinya"
+OR "Afaan Oromo")
