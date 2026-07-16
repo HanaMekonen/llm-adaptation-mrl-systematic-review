@@ -242,142 +242,170 @@ P22_Vemula_2025.md
 
 This example illustrates the expected level of detail and formatting for all extracted studies.
 
-### 1. Study Metadata
+## Example Completed Data Extraction Form
+
+# P22 — Vemula et al. (2025)
+
+---
+
+## 1. Study Metadata
 
 | Field | Value |
 | :--- | :--- |
 | **Paper ID** | P22 |
-| **Authors** | Saketh Reddy Vemula, Sandipan Dandapat, Dipti Misra Sharma, Parameswari Krishnamurthy |
-| **Year** | 2025 |
-| **Publication Type** | Conference paper |
-| **Venue** | IJCNLP-AACL 2025 |
+| **Citation** | Vemula, S. R., Dandapat, S., Sharma, D. M., & Krishnamurthy, P. (2025). *Rethinking Tokenization for Rich Morphology: Morphological Alignment as a Key Factor in Language Modeling*. Proceedings of IJCNLP-AACL 2025 Student Research Workshop. |
+| **Publication Year** | 2025 |
+| **Publication Type** | Peer-reviewed conference paper |
+| **Venue** | IJCNLP-AACL 2025 Student Research Workshop |
+| **Publisher** | Association for Computational Linguistics (ACL) |
 | **DOI** | 10.18653/v1/2025.ijcnlp-srw.20 |
+| **URL** | https://aclanthology.org/2025.ijcnlp-srw.20 |
+| **Primary Study** | Yes |
+| **Reason for Inclusion** | Investigates tokenizer adaptation for morphologically rich languages through controlled experiments comparing multiple subword segmentation strategies. Directly addresses RQ1, RQ2, and RQ3. |
 
 ---
 
-### 2. Language and Typological Characteristics
+## 2. Research Scope
 
 | Field | Value |
 | :--- | :--- |
-| **Target Language(s)** | Telugu, Hindi, English |
-| **Language Family** | Dravidian (Telugu); Indo-Aryan (Hindi); Indo-European (English) |
-| **Writing System / Script** | Telugu, Devanagari, Latin |
-| **Morphological Typology** | Agglutinative (Telugu); Fusional with agglutination (Hindi); Fusional (English) |
-| **Typology Source** | Established linguistic literature |
-| **Resource Level** | Low-resource (Telugu, Hindi); High-resource (English) |
-| **Resource Level Definition** | Not reported |
-| **Language Role** | Target and Evaluation |
+| **Research Objective** | To investigate how different subword tokenization strategies influence language model performance in morphologically rich languages and whether morphological alignment is a better predictor of downstream performance than vocabulary compression. |
+| **Research Domain** | Tokenizer and vocabulary adaptation for morphologically rich languages |
+| **Primary Adaptation Category** | Tokenizer adaptation |
 
 ---
 
-### 3. Model Characteristics
+## 3. Language and Typological Characteristics
 
 | Field | Value |
 | :--- | :--- |
-| **Base Model** | BERT (custom trained from scratch) |
-| **Model Size** | 8.5M (excluding embedding layer) |
+| **Languages Investigated** | Telugu, Hindi, English |
+| **Primary Target Language** | Telugu |
+| **Comparison Languages** | Hindi and English |
+| **Language Family** | Telugu – Dravidian; Hindi – Indo-Aryan (Indo-European); English – Germanic (Indo-European) |
+| **Writing Systems** | Telugu script, Devanagari, Latin |
+| **Morphological Typology** | Telugu – Agglutinative; Hindi – Fusional with moderate agglutinative characteristics; English – Predominantly fusional/analytic |
+| **Typology Source** | Established linguistic literature (not explicitly cited by the authors) |
+| **Resource Level** | Telugu – Low-resource; Hindi – Medium-resource; English – High-resource |
+| **Resource Level Definition** | Not explicitly defined by the authors. Classification inferred from the availability of digital corpora and NLP resources. |
+| **Language Roles** | Telugu: primary experimental language; Hindi and English: comparative evaluation languages |
+
+---
+
+## 4. Model Characteristics
+
+| Field | Value |
+| :--- | :--- |
+| **Base Model** | Custom BERT models trained from scratch |
+| **Architecture** | Encoder-only Transformer |
+| **Training Objective** | Masked Language Modeling (MLM) |
+| **Model Size** | Approximately 8.5M parameters (excluding embedding layer) |
 | **Model Availability** | Open-weight |
-| **Architecture** | Encoder-only |
+| **Pretrained Model Used** | No (models trained from scratch) |
 
 ---
 
-### 4. Adaptation Strategy
+## 5. Adaptation Strategy
 
 | Field | Value |
 | :--- | :--- |
-| **Training Objective** | Masked Language Modeling |
+| **Adaptation Category** | Tokenizer/Vocabulary adaptation |
 | **Continued Pretraining** | No |
-| **Parameter-Efficient Fine-Tuning (PEFT)** | None (full training from scratch) |
-| **Prompting** | None |
-| **Tokenizer Adaptation** | Unigram, BPE, Morfessor+BPE, Morphological Analyzer+BPE, Word-level |
-| **Vocabulary Expansion** | Yes — 8K, 16K, 50K vocabulary sizes |
-| **Retrieval-Augmented Generation (RAG)** | Not applicable |
-| **Hybrid Adaptation Pipeline** | Not applicable |
+| **Instruction Tuning** | No |
+| **Parameter-Efficient Fine-Tuning (PEFT)** | Not used |
+| **Prompting** | Not applicable |
+| **Tokenizer Methods Compared** | Word-level, Character-level, BPE, Unigram, Morfessor+BPE, Morphological Analyzer+BPE |
+| **Morphology-aware Tokenization** | Yes |
+| **Vocabulary Sizes Evaluated** | 8K, 16K, and 50K tokens |
+| **Vocabulary Expansion** | Not performed; tokenizer variants trained independently |
+| **Retrieval-Augmented Generation** | Not applicable |
+| **Hybrid Adaptation Pipeline** | Morfessor+BPE and Morphological Analyzer+BPE |
 
 ---
 
-### 5. Training Configuration
+## 6. Training Configuration
 
 | Field | Value |
 | :--- | :--- |
-| **Training Corpus** | WMT News Crawl + IndicCorp (Telugu) |
-| **Training Data Size** | 10M sentences per language |
-| **Data Source** | WMT News Crawl, IndicCorp |
-| **GPU** | NVIDIA RTX 6000 (pre-training), 4× RTX 2080 (fine-tuning) |
-| **GPU Memory** | 50GB VRAM (pre-training) |
-| **Model Parameters** | 8.5M (excluding embedding layer) |
-| **Trainable Parameters** | 8.5M (full training) |
-| **Training Time** | 175,000 steps |
+| **Training Corpus** | WMT News Crawl and IndicCorp |
+| **Training Data Size** | Approximately 10 million sentences per language |
+| **Data Sources** | IndicCorp, WMT News Crawl |
+| **Training Hardware** | NVIDIA RTX 6000 (pretraining); 4 × RTX 2080 GPUs (fine-tuning) |
+| **GPU Memory** | Approximately 50 GB VRAM during pretraining |
+| **Training Parameters** | Approximately 8.5M trainable parameters |
+| **Training Duration** | 175,000 optimization steps |
+| **Missing Information** | GPU hours not reported |
 
 ---
 
-### 6. Evaluation
+## 7. Evaluation
 
 | Field | Value |
 | :--- | :--- |
-| **Task** | Text Classification, POS Tagging, NER, Dependency Parsing, Similarity Assessment, NLI |
 | **Evaluation Type** | Discriminative |
-| **Evaluation Dataset** | IndicGLUE, IndicXTREME, GLUE |
-| **Evaluation Metrics** | Accuracy, F1, LAS, Pearson/Spearman correlation |
-| **Baseline Models** | BPE, Character-level, Word-level, Morfessor, Morphological Analyzer |
-| **Experimental Runs** | 3 independent runs |
-| **Statistical Analysis** | ANOVA, ANCOVA, fixed-effects models with p-values |
+| **Tasks** | Text Classification, POS Tagging, Named Entity Recognition, Dependency Parsing, Natural Language Inference, Semantic Textual Similarity |
+| **Benchmarks** | IndicGLUE, IndicXTREME, GLUE |
+| **Metrics** | Accuracy, F1-score, LAS, Pearson correlation, Spearman correlation, MorphScore |
+| **Baselines** | Character tokenizer, Word tokenizer, BPE, Morfessor tokenizer, Morphological Analyzer tokenizer |
+| **Experimental Runs** | Three independent runs per experiment |
+| **Statistical Analysis** | ANOVA, ANCOVA, fixed-effects regression models, p-values, mean ± standard deviation |
 
 ---
 
-### 7. Results
+## 8. Main Findings
 
 | Field | Value |
 | :--- | :--- |
-| **Main Findings** | Unigram outperforms BPE on agglutinative Telugu (MorphScore F1=0.79 vs 0.27); morphological alignment shows moderate positive correlation with syntax-based tasks; hybrid approaches boost BPE but not Unigram |
-| **Limitations** | Encoder-only models only; small model size (8.5M); limited to NLU tasks |
-| **Key Quantitative Results** | MorphScore F1: Unigram=0.79, BPE=0.27; Word similarity: Unigram=89.4%, BPE=79.7%; Unigram > BPE for Telugu across most settings |
-| **Computational Cost** | 72 models pre-trained; 2,160+ fine-tuning runs |
+| **Principal Findings** | Morphological alignment is a stronger predictor of downstream performance than traditional token compression measures. Unigram tokenization consistently outperformed BPE for Telugu across most NLP tasks. Hybrid morphology-aware tokenizers improved BPE but did not consistently outperform Unigram. |
+| **Key Quantitative Results** | MorphScore (Telugu): Unigram = 0.79, BPE = 0.27. Word similarity improved from approximately 79.7% (BPE) to 89.4% (Unigram). Positive correlation observed between MorphScore and syntactic downstream tasks. |
+| **Computational Efficiency** | More than 70 pretrained models and over 2,000 downstream fine-tuning experiments conducted. |
+| **Authors' Limitations** | Limited to relatively small encoder models; experiments focus on NLU tasks rather than generative LLMs. |
 
 ---
 
-### 8. Evidence for Research Questions
+## 9. Contribution to the Review
 
-| RQ | Contribution | Yes/No | Evidence Description |
-| :--- | :--- | :--- | :--- |
-| **RQ1** | Adaptation techniques and mechanisms | ☑ Yes | Tokenization (Unigram vs. BPE), morphological alignment, hybrid tokenizers |
-| **RQ2** | Quantitative comparison (data, compute, performance) | ☑ Yes | Detailed comparison across vocabulary sizes, tokenizer variants, and tasks |
-| **RQ3** | Typology influence on adaptation | ☑ Yes | Agglutinative Telugu: Unigram > BPE; morphological alignment correlates with syntax tasks |
-| **RQ4** | Evaluation, benchmarks, and metrics | ☐ No | Not addressed |
+| Research Question | Contribution |
+| :--- | :--- |
+| **RQ1** | Demonstrates that tokenizer design is an effective adaptation strategy for morphologically rich languages. |
+| **RQ2** | Provides extensive quantitative comparisons across tokenizer families, vocabulary sizes, and downstream tasks. |
+| **RQ3** | Strong evidence that morphological typology directly influences tokenizer effectiveness, particularly for agglutinative languages such as Telugu. |
+| **RQ4** | Illustrates rigorous evaluation methodology using multiple benchmarks and statistical validation but does not introduce new evaluation metrics or datasets. |
 
 ---
 
-### 9. Quality Assessment
+## 10. Quality Assessment
 
 | Criterion | Rating | Justification |
 | :--- | :--- | :--- |
-| **Reporting Clarity (C1)** | ☑ H | Full architectural and hyperparameter details provided; code available |
-| **Baseline Appropriateness (C2)** | ☑ H | Compared against multiple baselines (BPE, character, word, Morfessor, morphological analyzer) |
-| **Evaluation Robustness (C3)** | ☑ H | 3 independent runs; ANOVA, ANCOVA, fixed-effects models with p-values; mean and standard deviation reported |
-| **Overall Quality** | ☑ High | Rigorous experimental design with controlled comparisons and statistical analysis |
+| **Reporting Clarity** | High (5/5) | Experimental setup, tokenizer construction, datasets, hyperparameters, and implementation details are comprehensively documented. |
+| **Baseline Appropriateness** | High (5/5) | Multiple strong baselines representing word-, character-, statistical-, and morphology-aware tokenization are compared under controlled conditions. |
+| **Evaluation Robustness** | High (5/5) | Large-scale evaluation across multiple benchmark suites with repeated runs and appropriate statistical significance testing. |
+| **Overall Quality** | **15/15 (High)** | High methodological rigor and reproducibility with comprehensive empirical evaluation. |
 
 ---
 
-### 10. Reproducibility
+## 11. Reproducibility Assessment
 
 | Field | Value |
 | :--- | :--- |
-| **Code Availability** | ☑ Yes — GitHub repository |
-| **Model Availability** | ☑ Yes |
-| **Dataset Availability** | ☑ Yes — TeluguMorphScore dataset |
-| **Experimental Reproducibility** | ☑ Sufficient details |
+| **Source Code** | Available |
+| **Pretrained Models** | Available |
+| **Datasets** | Publicly available |
+| **Experimental Settings** | Sufficiently documented for replication |
 | **License** | Not specified |
 
 ---
 
-### 11. Reviewer Notes
+## 12. Reviewer's Analytical Notes
 
 | Field | Notes |
 | :--- | :--- |
-| **Methodological Concerns** | Results may not generalize to larger models or decoder-only architectures; limited to NLU tasks |
-| **Noteworthy Implementation Details** | 72 models pre-trained; morphological analyzer used for Telugu hybrid tokenizers |
-| **Additional Observations** | Strong evidence for Unigram > BPE for agglutinative languages in NLU settings |
-| **Information for Narrative Synthesis** | Key paper for RQ3 (typology-sensitive tokenization) and RQ1 (tokenizer comparison) |
+| **Methodological Strengths** | Carefully controlled tokenizer comparison while holding model architecture constant; rigorous statistical validation; extensive experimental coverage. |
+| **Methodological Weaknesses** | Findings are based on relatively small encoder models and may not transfer directly to contemporary decoder-only LLMs such as LLaMA or Gemma. |
+| **Importance for This Review** | One of the strongest empirical studies supporting morphology-aware tokenization. Provides high-quality evidence that morphological typology should inform tokenizer design for low-resource languages. |
+| **Evidence Weight** | **High** |
+| **Recommended Citation Use** | Background (tokenization), Results (RQ1), Comparative Analysis (RQ2), Typology Discussion (RQ3). |
 
 ---
 
