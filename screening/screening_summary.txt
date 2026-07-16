@@ -1,0 +1,29 @@
+======================================================================
+PRISMA 2020-COMPLIANT AUTOMATED SCREENING REPORT
+======================================================================
+
+Generation Timestamp: 2026-07-11 22:11
+
+I. GRANULAR EXCLUSION MATRIX
+---------------------------------------------
+Total Initial Records Loaded:              521
+  - Exact Duplicates Eliminated:           0
+  - DOI Overlaps Eliminated:                22
+  - Normalized Title Overlaps Eliminated:   25
+  - Outside Temporal Bounds (2023-2026):    2
+  - Editorial/Non-Empirical Formats:        2
+  - Syntheses/Literature Review Papers:     8
+---------------------------------------------
+Total Combined Pipeline Exclusions:        59
+Net Records Retained for Manual Review:    462
+  * Confirmed Core LRL Context:            462
+  * Flagged Ambiguous (Protected Safety):  0
+
+II. PRISMA 2020 FLOW DIAGRAM METRICS
+---------------------------------------------
+1. Identification: Records from Databases (N):  521
+2. Identification: Duplicates Removed (N):      47
+3. Screening: Records Screened via Tools (N):   474
+4. Screening: Records Automated Excluded (N):   12
+5. Eligibility: Sought for Manual Review (N):   462
+======================================================================
