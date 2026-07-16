@@ -1,181 +1,246 @@
 # Standardized Data Extraction Template
 
-**Appendix D: Data Extraction Template for Systematic Review**
+**Appendix D: Data Extraction Template**
 
-**Review Title:** Techniques for Adapting Large Language Models to Low-Resource, Morphologically Rich Languages: A Systematic Review
+This repository contains the standardized data extraction template used in the systematic review:
 
-**Reviewer:** Hana Mekonen
+> **Techniques for Adapting Large Language Models to Low-Resource, Morphologically Rich Languages: A Systematic Review**
 
-**Date:** [1/7/26]
-
----
-
-## Instructions for Use
-
-1. **Complete one extraction form per included study.**
-2. **Use the paper's full text** (not just the abstract) to extract information.
-3. **For missing information**, explicitly note **"Not reported"** in the field.
-4. **For information not applicable**, explicitly note **"Not applicable"** in the field.
-5. **For estimated values** (e.g. derived from other reported information), explicitly note **"Estimated"** in the field.
-6. **Save each extraction** using the naming convention: `P[PaperID]_[FirstAuthor]_[Year].md`
-   - Example: `P22_Vemula_2025.md`
+The template was developed before full-text review to ensure consistent and reproducible extraction of evidence across all included studies.
 
 ---
 
-## Extraction Form
+# General Instructions
 
-### 1. Study Metadata
+Complete **one extraction form for each included primary study**.
+
+Extraction should always be performed from the **full text** rather than the abstract.
+
+If information is unavailable, use the following standardized codes.
+
+| Code | Meaning |
+|-------|---------|
+| **NR** | Not Reported |
+| **NA** | Not Applicable |
+| **EST** | Estimated from reported information |
+
+---
+
+## File Naming Convention
+
+Save each extraction using
+
+```
+PXX_FirstAuthor_Year.md
+```
+
+Example
+
+```
+P22_Vemula_2025.md
+```
+
+---
+
+# Data Extraction Form
+
+---
+
+# 1. Study Metadata
 
 | Field | Value |
-| :--- | :--- |
-| **Paper ID** | [P01–P30] |
-| **Authors** | [Full author names] |
-| **Year** | [Publication year] |
-| **Publication Type** | [Journal article / Conference paper / Workshop paper] |
-| **Venue** | [Journal or conference name] |
-| **DOI** | [Digital Object Identifier if available] |
+|-------|-------|
+| Paper ID | |
+| Authors | |
+| Year | |
+| Publication Type | Journal / Conference / Workshop |
+| Venue | |
+| DOI | |
+| Country of First Author (optional) | |
 
 ---
 
-### 2. Language and Typological Characteristics
+# 2. Language and Typological Characteristics
+
+Record **every language evaluated in the study**.
+
+For multilingual studies, list all languages and indicate the role of each.
 
 | Field | Value |
-| :--- | :--- |
-| **Target Language(s)** | [All languages investigated] |
-| **Language Family** | [e.g., Afroasiatic, Indo-European, Dravidian, Turkic, Austronesian] |
-| **Writing System / Script** | [e.g., Latin, Ge'ez, Arabic, Devanagari, Cyrillic, Telugu] |
-| **Morphological Typology** | [Agglutinative / Fusional / Non-concatenative / Polysynthetic / Analytic / Isolating / Mixed] |
-| **Typology Source** | [WALS / Glottolog / Ethnologue / Established linguistic literature / Study's own characterization / Other] |
-| **Resource Level** | [High-resource / Medium-resource / Low-resource] |
-| **Resource Level Definition** | [Definition of resource scarcity adopted by the study, if explicitly reported] |
-| **Language Role** | [Source / Target / Evaluation / Multilingual / Multiple roles] |
+|-------|-------|
+| Target Language(s) | |
+| Source Language(s) | |
+| Evaluation Language(s) | |
+| Language Family | |
+| Writing System / Script | |
+| Morphological Typology | |
+| Typology Source | WALS / Glottolog / Ethnologue / Linguistic literature / Study definition / Other |
+| Resource Level | High / Medium / Low |
+| Resource Level Definition | Definition used by the authors (if reported) |
+| Language Role | Source / Target / Evaluation / Multiple |
 
 ---
 
-### 3. Model Characteristics
+# 3. Foundation Model Characteristics
 
 | Field | Value |
-| :--- | :--- |
-| **Base Model** | [e.g., LLaMA, Gemma, Qwen, GPT, BLOOM, mT5, XLM-R, BERT] |
-| **Model Size** | [Number of parameters, e.g., 560M, 7B, 13B, 70B] |
-| **Model Availability** | [Open-weight / Proprietary API] |
-| **Architecture** | [Decoder-only / Encoder-only / Encoder-Decoder] |
+|-------|-------|
+| Base Model | |
+| Model Size | |
+| Architecture | Decoder-only / Encoder-only / Encoder-Decoder |
+| Model Availability | Open-weight / Proprietary |
+| Original Training Objective | Causal LM / MLM / Seq2Seq / Other |
 
 ---
 
-### 4. Adaptation Strategy
+# 4. Adaptation Strategy
 
 | Field | Value |
-| :--- | :--- |
-| **Training Objective** | [Continued pretraining / Instruction tuning / Causal LM / Masked LM / Sequence-to-Sequence / Other] |
-| **Continued Pretraining** | [Yes / No] — [Corpus description if available] |
-| **Parameter-Efficient Fine-Tuning (PEFT)** | [LoRA / IA³ / QLoRA / ReFT / Adapters / Other / None] |
-| **LoRA** (if applicable) | [Rank (r): __, Alpha (α): __, Target modules: __, Dropout: __] |
-| **IA³** (if applicable) | [Rescaling vectors configuration: __] |
-| **QLoRA** (if applicable) | [Quantization method: __, Rank (r): __] |
-| **ReFT** (if applicable) | [LayerNorm parameters / Classification head / Other: __] |
-| **Prompting** | [Zero-shot / Few-shot / Chain-of-Thought / Least-to-Most / Self-Refine / Other / None] |
-| **Tokenizer Adaptation** | [BPE / Unigram / WordPiece / Morphology-aware / SKMT / MoVoC / Other / None] |
-| **Vocabulary Expansion** | [Yes / No] — [Number of additional tokens: __] |
-| **Retrieval-Augmented Generation (RAG)** (if applicable) | [Retriever: __, Generator: __, Retrieval corpus: __] |
-| **Hybrid Adaptation Pipeline** | [Description of multi-stage adaptation if applicable] |
+|-------|-------|
+| Primary Adaptation Technique | |
+| Continued Pretraining | |
+| PEFT Method | LoRA / QLoRA / IA³ / ReFT / Adapter / Other |
+| Prompting Strategy | Zero-shot / Few-shot / CoT / Self-refine / Other |
+| Tokenizer Adaptation | |
+| Vocabulary Expansion | |
+| Retrieval-Augmented Generation (RAG) | |
+| Cross-lingual Transfer | |
+| Hybrid Pipeline | |
+| Important Hyperparameters | Rank, α, learning rate, epochs, etc. |
 
 ---
 
-### 5. Training Configuration
+# 5. Training Configuration
 
 | Field | Value |
-| :--- | :--- |
-| **Training Corpus** | [Name and description] |
-| **Training Data Size** | [Number of documents / sentences / tokens] |
-| **Data Source** | [e.g., OSCAR, mC4, Wikipedia, Common Crawl, custom corpus] |
-| **GPU** | [GPU model(s) used] |
-| **GPU Memory** | [Peak memory usage in MB/GB, if reported] |
-| **Model Parameters** | [Total number of model parameters] |
-| **Trainable Parameters** | [Number of trainable parameters during adaptation] |
-| **Training Time** | [GPU hours or training duration, if reported] |
+|-------|-------|
+| Training Corpus | |
+| Corpus Size | |
+| Data Source | |
+| GPU Hardware | |
+| GPU Memory | |
+| Training Time | |
+| Total Parameters | |
+| Trainable Parameters | |
+| Energy or Cost Reported | Yes / No |
 
 ---
 
-### 6. Evaluation
+# 6. Evaluation
 
 | Field | Value |
-| :--- | :--- |
-| **Task** | [Downstream task: e.g., Translation, QA, NER, Sentiment Analysis, Text Classification] |
-| **Evaluation Type** | [Generative / Discriminative] |
-| **Evaluation Dataset** | [Benchmark dataset names] |
-| **Evaluation Metrics** | [e.g., BLEU, chrF, Accuracy, F1, Exact Match, MorphScore, TSI] |
-| **Baseline Models** | [Baseline systems used for comparison] |
-| **Experimental Runs** | [Number of independent runs, if reported] |
-| **Statistical Analysis** | [Variance measures / Confidence intervals / Significance tests / Other] |
+|-------|-------|
+| Downstream Task(s) | |
+| Evaluation Type | Generative / Discriminative |
+| Benchmark Dataset(s) | |
+| Evaluation Metrics | |
+| Baselines | |
+| Number of Experimental Runs | |
+| Variance Reported | Yes / No |
+| Statistical Tests | |
+| Error Analysis | Yes / No |
 
 ---
 
-### 7. Results
+# 7. Main Results
 
 | Field | Value |
-| :--- | :--- |
-| **Main Findings** | [Principal findings reported by the authors] |
-| **Limitations** | [Limitations acknowledged by the authors or identified during extraction] |
-| **Key Quantitative Results** | [Reported metrics with values] |
-| **Computational Cost** | [GPU hours, memory, parameters, if reported] |
+|-------|-------|
+| Main Findings | |
+| Key Quantitative Results | |
+| Computational Efficiency | |
+| Reported Limitations | |
 
 ---
 
-### 8. Evidence for Research Questions
+# 8. Contribution to Research Questions
 
-| RQ | Contribution | Yes/No | Evidence Description |
-| :--- | :--- | :--- | :--- |
-| **RQ1** | Adaptation techniques and mechanisms | ☐ Yes / ☐ No | |
-| **RQ2** | Quantitative comparison (data, compute, performance) | ☐ Yes / ☐ No | |
-| **RQ3** | Typology influence on adaptation | ☐ Yes / ☐ No | |
-| **RQ4** | Evaluation, benchmarks, and metrics | ☐ Yes / ☐ No | |
+| RQ | Contribution | Evidence |
+|----|-------------|----------|
+| RQ1 | Adaptation techniques | |
+| RQ2 | Quantitative comparison | |
+| RQ3 | Influence of morphology and typology | |
+| RQ4 | Evaluation practices | |
 
 ---
 
-### 9. Quality Assessment
+# 9. Quality Assessment
 
-**Scoring Rubric:**
+Each study is evaluated using three predefined criteria.
 
-| Rating | Criteria |
-| :--- | :--- |
-| **H (High)** | Fully satisfied with detailed, reproducible information |
-| **M (Medium)** | Partially satisfied, but some details missing or insufficient |
-| **L (Low)** | Not satisfied or insufficiently addressed |
+## Criterion 1 — Reporting Clarity
+
+| Rating | Description |
+|---------|-------------|
+| High | Architecture, datasets, hyperparameters, and methodology fully described |
+| Medium | Minor methodological details missing |
+| Low | Important methodological information missing |
+
+---
+
+## Criterion 2 — Baseline Appropriateness
+
+| Rating | Description |
+|---------|-------------|
+| High | Compared with strong and appropriate baselines |
+| Medium | Compared with limited baselines |
+| Low | Weak or missing baseline comparison |
+
+---
+
+## Criterion 3 — Evaluation Robustness
+
+| Rating | Description |
+|---------|-------------|
+| High | Multiple datasets/tasks, repeated runs, variance or significance testing reported |
+| Medium | Adequate evaluation but limited robustness reporting |
+| Low | Minimal evaluation or insufficient experimental evidence |
+
+---
+
+### Overall Assessment
 
 | Criterion | Rating | Justification |
-| :--- | :--- | :--- |
-| **Reporting Clarity (C1)** | ☐ H / ☐ M / ☐ L | [Justification] |
-| **Baseline Appropriateness (C2)** | ☐ H / ☐ M / ☐ L | [Justification] |
-| **Evaluation Robustness (C3)** | ☐ H / ☐ M / ☐ L | [Justification] |
-| **Overall Quality** | ☐ High / ☐ Medium / ☐ Low | [Synthesis of three criteria] |
+|-----------|--------|---------------|
+| Reporting Clarity | | |
+| Baseline Appropriateness | | |
+| Evaluation Robustness | | |
+| Overall Quality | High / Medium / Low | |
 
 ---
 
-### 10. Reproducibility
+# 10. Reproducibility
 
 | Field | Value |
-| :--- | :--- |
-| **Code Availability** | ☐ Yes / ☐ No — [URL if available] |
-| **Model Availability** | ☐ Yes / ☐ No — [URL if available] |
-| **Dataset Availability** | ☐ Yes / ☐ No — [URL if available] |
-| **Experimental Reproducibility** | ☐ Sufficient details / ☐ Insufficient details |
-| **License** | [e.g., CC-BY, MIT, Apache, Not specified] |
+|-------|-------|
+| Code Available | |
+| Model Available | |
+| Dataset Available | |
+| Experimental Details Sufficient | |
+| License | |
 
 ---
 
-### 11. Reviewer Notes
+# 11. Reviewer Notes
 
 | Field | Notes |
-| :--- | :--- |
-| **Methodological Concerns** | |
-| **Noteworthy Implementation Details** | |
-| **Additional Observations** | |
-| **Information for Narrative Synthesis** | |
+|-------|------|
+| Methodological Concerns | |
+| Interesting Technical Details | |
+| Relevance to Narrative Synthesis | |
+| Additional Observations | |
 
 ---
 
-## Completed Example: Vemula et al. (2025)
+# Example Completed Extraction
+
+The repository includes one fully completed example:
+
+```
+P22_Vemula_2025.md
+```
+
+This example illustrates the expected level of detail and formatting for all extracted studies.
 
 ### 1. Study Metadata
 
