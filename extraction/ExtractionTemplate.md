@@ -1,8 +1,6 @@
 # Standardized Data Extraction Template
 
-**Appendix D: Data Extraction Template**
-
-This repository contains the standardized data extraction template used in the systematic review:
+This file contains the standardized data extraction template used in the systematic review:
 
 > **Techniques for Adapting Large Language Models to Low-Resource, Morphologically Rich Languages: A Systematic Review**
 
@@ -409,6 +407,10 @@ This example illustrates the expected level of detail and formatting for all ext
 
 ---
 
-## File Naming Convention
+## License
 
-All extraction files should be saved using the following naming convention:
+These materials are shared under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+
+**Citation:**
+
+> H. Mekonen, "Techniques for Adapting Large Language Models to Low-Resource, Morphologically Rich Languages: A Systematic Review," Seminar II, Addis Ababa University, 2026.
